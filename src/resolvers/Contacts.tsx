@@ -98,6 +98,7 @@ export async function getTags(contactId: string) {
  * return array of Contacts
  */
 export async function getContacts() {
+	// limiting data to 4 rows
 	const data = await axiosRequest(`${proxyUrl}${contactsUrl}?limit=4`);
 	const contacts = data.contacts;
 	const map: Contact[] = [];
