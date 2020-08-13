@@ -2,7 +2,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from "react-dom";
 import mockAxios from 'jest-mock-axios';
 import { act } from "react-dom/test-utils";
-import App from './App';
+import Contacts from './Contacts';
 import axios from 'axios';
 
 jest.mock('axios');
@@ -36,7 +36,7 @@ afterEach(() => {
 
 test('renders contacts component', async () => {
    act(() => {
-     render(<App />, container);
+     render(<Contacts />, container);
   });
   expect(container).toBeInTheDocument();
   expect(axios.get).toHaveBeenCalled();

@@ -18,8 +18,8 @@ export interface Contact {
 } 
 /**
  * Returns convert value to usd
- * @param {number} value - monetary value 
- * @param {string} symbol - monetary symbol
+ * @param {number} value - value 
+ * @param {string} symbol - api urls
  */
 export function convert(value: number, symbol: string) {
 	switch (symbol) {
@@ -79,7 +79,7 @@ async function getDealsLocation(contactId: string) {
  * @param {string} contactId - the contact id associated with a user account
  * 2 api request to get tags 1st to get contact tags 2nd to get tag value
  */
-async function getTags(contactId: string) {
+export async function getTags(contactId: string) {
 
 	const data = await axiosRequest(`${proxyUrl}${contactsUrl}/${contactId}/contactTags`);
 	let tagData: any = undefined;
@@ -98,7 +98,7 @@ async function getTags(contactId: string) {
  * return array of Contacts
  */
 export async function getContacts() {
-	const data = await axiosRequest(`${proxyUrl}${contactsUrl}`);
+	const data = await axiosRequest(`${proxyUrl}${contactsUrl}?limit=4`);
 	const contacts = data.contacts;
 	const map: Contact[] = [];
 

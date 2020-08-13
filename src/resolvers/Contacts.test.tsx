@@ -6,7 +6,7 @@ jest.mock('axios');
 
 axios.get.mockImplementation((url) => {
   switch (url) {
-    case "https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts": 
+    case "https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts?limit=4": 
        return  Promise.resolve({data: {contacts:[{id: "123", firstName: "Bob", lastName: "Drop"}]}});
     case "https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts/123":
        return  Promise.resolve({data: {contacts:[{id: "123", firstName: "Bob", lastName: "Drop"}], deals: [{currency: "usd", value: 1}]}});
