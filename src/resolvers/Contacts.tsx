@@ -60,7 +60,7 @@ const axiosRequest = async (url: string) => {
  * @param {string} contactId - the contact id associated with a user account
  * 1 api request to get contact by id. 
  */
-export async function getDealsLocation(contactId: string) {
+async function getDealsLocation(contactId: string) {
 
 	const data = await axiosRequest(`${proxyUrl}${contactsUrl}/${contactId}`);
 	let total: number = 0;
@@ -79,7 +79,7 @@ export async function getDealsLocation(contactId: string) {
  * @param {string} contactId - the contact id associated with a user account
  * 2 api request to get tags 1st to get contact tags 2nd to get tag value
  */
-export async function getTags(contactId: string) {
+async function getTags(contactId: string) {
 
 	const data = await axiosRequest(`${proxyUrl}${contactsUrl}/${contactId}/contactTags`);
 	let tagData: any = undefined;
